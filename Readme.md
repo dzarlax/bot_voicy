@@ -13,7 +13,7 @@ Telegram Transcribe Bot — это бот, предназначенный для
 - Node.js версии 16 или выше
 - npm (обычно поставляется с Node.js)
 - Docker (для развертывания через Docker-контейнер)
-- [transcribe-everything]([https://github.com/zackees/transcribe-anything])
+- [transcribe-everything](https://github.com/zackees/transcribe-anything)
 
 ### Установка
 
@@ -22,7 +22,7 @@ Telegram Transcribe Bot — это бот, предназначенный для
 1. Клонируйте репозиторий на локальный компьютер:
 
 ```bash
-git clone https://github.com/yourusername/telegram-transcribe-bot.git
+git clone https://github.com/dzarlax/telegram-transcribe-bot.git
 cd telegram-transcribe-bot
 ```
 
