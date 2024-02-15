@@ -1,5 +1,6 @@
+require('dotenv').config();
 const { Telegraf } = require('telegraf');
-const bot = new Telegraf(''); // Замените ВАШ_ТОКЕН_БОТА на токен, полученный от BotFather
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => ctx.reply('Привет! Отправьте мне видео, аудио файл или ссылку на видео.'));
 bot.help((ctx) => ctx.reply('Отправьте видео или аудио файл для транскрибации.'));
@@ -48,15 +49,7 @@ bot.on(['audio', 'video'], async (ctx) => {
   
 
   bot.on('text', async (ctx) => {
-    let messageText = ctx.message.text;
-    if (messageText.startsWith("http")) {
-      console.log(`Получена ссылка: ${messageText}`);
-      // Тут должна быть логика для обработки ссылки, например, загрузка контента перед транскрибацией
-      transcribe(ctx, messageText); // Только если ваш transcribe-anything может работать напрямую с URL
-      // Иначе сначала загрузите содержимое по URL, сохраните в файл и передайте путь к этому файлу в transcribe
-    } else {
-      ctx.reply("Пожалуйста, отправьте ссылку на видео.");
-    }
+      ctx.reply("Пожалуйста, отправьте аудио или видео.");
   });
   
 
@@ -131,9 +124,7 @@ bot.on(['audio', 'video'], async (ctx) => {
     });
   }
   
-  
-  
-    
+   
 
   const fsp = require('fs').promises; // Убедитесь, что используете версию fs с промисами
 
