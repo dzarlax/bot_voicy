@@ -22,8 +22,8 @@ Telegram Transcribe Bot — это бот, предназначенный для
 1. Клонируйте репозиторий на локальный компьютер:
 
 ```bash
-git clone https://github.com/dzarlax/telegram-transcribe-bot.git
-cd telegram-transcribe-bot
+git clone https://github.com/dzarlax/bot_voicy.git
+cd bot_voicy
 ```
 
 
@@ -57,6 +57,6 @@ node bot.js
 Для развертывания в Docker выполните следующие команды:
 
 ```bash
-docker build -t telegram-transcribe-bot .
-docker run -d --name my-transcribe-bot telegram-transcribe-bot
+docker build -t bot_voicy .
+docker run -d --name voicy bot_voicy
 ```
