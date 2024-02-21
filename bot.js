@@ -24,11 +24,15 @@ bot.on(["audio", "video"], async (ctx) => {
 
   // Проверка на наличие fileId перед продолжением
   if (!fileId) {
-    console.log("Сообщение не содержит аудио или видео.");
+    ctx.reply("Сообщение не содержит аудио или видео.");
     return; 
   }
 
   let fileInfo = await ctx.telegram.getFile(fileId);
+  if (fileInfo.file_size > 50 * 1024 * 1024) { // 50 МБ
+    ctx.reply('Извините, файл слишком большой для обработки.');
+    return; 
+  }
   let fileUrl = `https://api.telegram.org/file/bot${bot.token}/${fileInfo.file_path}`;
 
   const downloadsDir = path.resolve(__dirname, "downloads");
